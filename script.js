@@ -18,7 +18,7 @@ let transactions =
 
 function addTransaction(e) {
   e.preventDefault();
-  if (text.value.trim() === "" || amount.value.trim() === "") {
+  if (text.value.trim() === '' || amount.value.trim() === '') {
     alert("Please add a text and amount");
   } else {
     const transaction = {
@@ -30,6 +30,10 @@ function addTransaction(e) {
 
     addTransactionDOM(transaction);
     updateValues();
+    updateLocalStorage();
+
+    text.value = '';
+    amount.value = '';
   }
 }
 // generate a random ID
@@ -79,7 +83,7 @@ function updateLocalStorage() {
 }
 // Initialize app
 function init() {
-  list.innerHTML = "";
+  list.innerHTML = '';
   transactions.forEach(addTransactionDOM);
   updateValues();
 }
